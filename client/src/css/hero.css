@@ -1,6 +1,6 @@
 .hero {
     position: relative;
-    padding-top: 160px;
+    padding-top: 60px; /* Adjust the value as needed to align with the navbar */
     background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%);
   }
   
@@ -99,15 +99,21 @@
   
   .hero .hero-image {
     position: relative;
-    text-align:center;
+    text-align: center;
     z-index: 1;
-    
-  }
+    height: 500px; /* Set a specific height for the image container */
+    overflow: hidden; /* Ensure any overflow is hidden */
+    margin-top: 20px; /* Adjust the value as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
   
-  .hero .hero-image img {
+.hero .hero-image img {
     max-width: 100%;
     height: auto;
-  }
+    object-fit: cover; /* Ensure the image covers the container */
+}
   
   .hero .customers-badge {
     position: absolute;

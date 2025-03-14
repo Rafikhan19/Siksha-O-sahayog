@@ -1,181 +1,146 @@
+// pages/login.js
 "use client"
-import React, { useState } from 'react';
-import { Mail, Lock, User } from 'lucide-react';
-import '../../css/login.css'; 
+import { useState } from 'react';
+import Head from 'next/head';
+import Image from 'next/image';
+import '../../css/login.css'; // Corrected import statement
 
-const page = () => {
-  const [isLogin, setIsLogin] = useState(true);
+export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setError('');
-
-    // Simulate auth - replace with actual Firebase integration later
-    try {
-      // Basic validation
-      if (!email || !password) {
-        throw new Error('Please fill in all fields');
-      }
-      if (!isLogin && !name) {
-        throw new Error('Please enter your name');
-      }
-      if (password.length < 6) {
-        throw new Error('Password must be at least 6 characters');
-      }
-
-      // Simulate API call
-      console.log('Form submitted:', { email, password, name, isLogin });
-      // Here you would typically make API calls to your auth endpoints
-    } catch (err) {
-      setError(err.message);
-    }
-  };
-
-  const handleGoogleSignIn = async () => {
-    try {
-      // Simulate Google sign in
-      console.log('Google sign in clicked');
-      // Here you would integrate with Google Auth
-    } catch (err) {
-      setError('Google sign in failed. Please try again.');
-    }
-  };
-
-  const handleFacebookSignIn = async () => {
-    try {
-      // Simulate Facebook sign in
-      console.log('Facebook sign in clicked');
-      // Here you would integrate with Facebook Auth
-    } catch (err) {
-      setError('Facebook sign in failed. Please try again.');
-    }
+    // Handle login/signup logic here
+    console.log('Form submitted:', { email, password });
   };
 
   return (
-    <div className="auth-page">
-      <div className="auth-card">
-        <div className="auth-content">
-          <h1 className="auth-title">
-            {isLogin ? 'Welcome Back' : 'Create Account'}
-          </h1>
+    <div className="container">
+      <Head>
+        <title>SOA | Login</title>
+        <meta name="description" content="Red. learning platform login" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
 
-          {error && (
-            <div className="auth-error">
-              {error}
+      <main className="main">
+        <div className="card">
+          <div className="logoContainer">
+            <div className="logo">
+              <div className="logoCircle"></div>
+              <span className="logoText">SOA.</span>
             </div>
-          )}
-
-          <div className="auth-social-buttons">
-            <button
-              onClick={handleGoogleSignIn}
-              className="auth-social-button google"
-            >
-              <svg className="auth-social-icon" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
-                />
-                <path
-                  fill="currentColor"
-                  d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
-                />
-              </svg>
-              Continue with Google
-            </button>
-
-            <button
-              onClick={handleFacebookSignIn}
-              className="auth-social-button facebook"
-            >
-              <svg className="auth-social-icon" viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                />
-              </svg>
-              Continue with Facebook
-            </button>
-
-            <div className="auth-divider">
-              <div className="auth-divider-line"></div>
-              <span className="auth-divider-text">Or continue with</span>
+            <div className="socialIcons">
+              <div className="iconCircle">
+              <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 2H6C3.79086 2 2 3.79086 2 6V14C2 16.2091 3.79086 18 6 18H14C16.2091 18 18 16.2091 18 14V6C18 3.79086 16.2091 2 14 2Z" stroke="#333" fill="none" stroke-width="1.5"/>
+  <circle cx="10" cy="10" r="4" stroke="#333" fill="none" strokeWidth="1.5"/>
+  <circle cx="15" cy="5" r="1" fill="#333"/>
+</svg>
+              </div>
+              <div className="iconCircle darkIcon">
+              <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path d="M18 4L8.7 9.35C8.3 9.6 7.7 9.6 7.3 9.35L2 5.6" stroke="white" fill="none" stroke-width="1.5"/>
+  <path d="M16 3H4C2.89543 3 2 3.89543 2 5V15C2 16.1046 2.89543 17 4 17H16C17.1046 17 18 16.1046 18 15V5C18 3.89543 17.1046 3 16 3Z" stroke="white" fill="none" stroke-width="1.5"/>
+</svg>
+              </div>
             </div>
           </div>
 
-          <form onSubmit={handleSubmit} className="auth-form">
-            {!isLogin && (
-              <div className="auth-form-group">
-                <label className="auth-form-label">Name</label>
-                <div className="auth-input-wrapper">
-                  <User className="auth-input-icon" />
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    className="auth-input"
-                    placeholder="John Doe"
-                  />
+          <div className="formSection">
+            <div className="illustrationContainer">
+              <div className="illustration">
+              <svg width="500" height="300" viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg">
+
+  <rect x="175" y="200" width="80" height="100" fill="#FFDA79"/>
+  <rect x="80" y="240" width="60" height="60" fill="#FFDA79"/>
+  <rect x="380" y="200" width="80" height="100" fill="#FFDA79"/>
+  
+ 
+  <path d="M80 240 L175 240" stroke="#333" stroke-width="2"/>
+  <path d="M255 240 L380 240" stroke="#333" stroke-width="2"/>
+
+  <path d="M100 230 Q130 200 130 230" stroke="#333" fill="none" stroke-width="2"/>
+  <polygon points="100,230 110,225 105,235" fill="#333"/>
+  
+  
+  <ellipse cx="220" cy="180" rx="20" ry="25" fill="#333"/> 
+  <rect x="210" y="200" width="20" height="40" fill="#333"/> 
+  <path d="M210 205 L180 230" stroke="#333" stroke-width="10" stroke-linecap="round"/> 
+  <path d="M230 205 L330 230" stroke="#e86f37" stroke-width="10" stroke-linecap="round"/>
+  <path d="M210 240 L190 280" stroke="#333" stroke-width="10" stroke-linecap="round"/> 
+  <path d="M230 240 L250 280" stroke="#333" stroke-width="10" stroke-linecap="round"/> 
+</svg>
+
+
+
+              </div>
+            </div>
+
+            <div className="formContainer">
+              <div className="formHeader">
+                <h1 className="title">Login Here</h1>
+                <p className="subtitle">Please login or sign up to continue</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="form">
+                <div className="inputGroup">
+                  <div className="inputContainer">
+                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M17 3.5H3C2.17157 3.5 1.5 4.17157 1.5 5V15C1.5 15.8284 2.17157 16.5 3 16.5H17C17.8284 16.5 18.5 15.8284 18.5 15V5C18.5 4.17157 17.8284 3.5 17 3.5Z" stroke="#888" fill="none" stroke-width="1.5"/>
+                      <path d="M2 5L10 10L18 5" stroke="#888" fill="none" stroke-width="1.5"/>
+                    </svg>
+                    <input
+                      type="email"
+                      placeholder="Your Email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="input"
+                      required
+                    />
+                  </div>
+                  
+                  <div className="inputContainer">
+                 
+                    <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 9H5C4.44772 9 4 9.44772 4 10V16C4 16.5523 4.44772 17 5 17H15C15.5523 17 16 16.5523 16 16V10C16 9.44772 15.5523 9 15 9Z" stroke="#888" fill="none" stroke-width="1.5"/>
+                    <path d="M6 9V6C6 3.79086 7.79086 2 10 2C12.2091 2 14 3.79086 14 6V9" stroke="#888" fill="none" stroke-width="1.5"/>
+                    <circle cx="10" cy="13" r="1.5" fill="#888"/>
+                        </svg>
+
+                    <input
+                      type="password"
+                      placeholder="Your Password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="input"
+                      required
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
 
-            <div className="auth-form-group">
-              <label className="auth-form-label">Email</label>
-              <div className="auth-input-wrapper">
-                <Mail className="auth-input-icon" />
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="auth-input"
-                  placeholder="you@example.com"
-                />
-              </div>
+                <button type="submit" className="signUpButton">
+                  Sign Up
+                </button>
+                
+                <button type="button" className="googleButton">
+                <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+  <path d="M19.76 10.23c0-.67-.06-1.34-.17-1.99H10.1v3.75h5.42a4.63 4.63 0 0 1-2.01 3.03v2.52h3.26c1.91-1.75 3-4.34 3-7.31z" fill="#4285F4"/>
+  <path d="M10.1 20c2.73 0 5.02-.9 6.68-2.46l-3.26-2.52c-.9.6-2.06.96-3.42.96-2.63 0-4.86-1.77-5.66-4.16h-3.36v2.6C2.73 17.75 6.14 20 10.1 20z" fill="#34A853"/>
+  <path d="M4.44 11.82c-.2-.6-.32-1.24-.32-1.9s.12-1.3.32-1.9V5.42H1.08A9.97 9.97 0 0 0 0 10.08c0 1.62.39 3.16 1.08 4.52l3.36-2.78z" fill="#FBBC05"/>
+  <path d="M10.1 3.86c1.48 0 2.8.51 3.85 1.5l2.9-2.88C15.15.92 12.86 0 10.1 0 6.14 0 2.73 2.24 1.08 5.42l3.36 2.6c.8-2.39 3.03-4.16 5.66-4.16z" fill="#EA4335"/>
+</svg>
+                  Google
+                </button>
+                
+                <div className="loginLink">
+                  Already Have An Account? <a href="#">Login</a>
+                </div>
+              </form>
             </div>
-
-            <div className="auth-form-group">
-              <label className="auth-form-label">Password</label>
-              <div className="auth-input-wrapper">
-                <Lock className="auth-input-icon" />
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  className="auth-input"
-                  placeholder="••••••••"
-                />
-              </div>
-            </div>
-
-            <button type="submit" className="auth-submit-button">
-              {isLogin ? 'Sign In' : 'Create Account'}
-            </button>
-          </form>
-
-          <div className="auth-switch">
-            <button
-              onClick={() => setIsLogin(!isLogin)}
-              className="auth-switch-button"
-            >
-              {isLogin ? "Don't have an account? Sign up" : 'Already have an account? Sign in'}
-            </button>
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
-};
-
-export default page;
+}

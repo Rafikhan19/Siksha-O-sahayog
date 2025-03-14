@@ -36,7 +36,7 @@ function Hero() {
 
           <div className="col-lg-6">
             <div className="hero-image" data-aos="zoom-out" data-aos-delay="300">
-              <img src="https://themewagon.github.io/iLanding/assets/img/illustration-1.webp" alt="Hero Image" className="img-fluid" />
+              <img src="https://images.squarespace-cdn.com/content/v1/57713a8e2994cae381dd86fe/1543925384526-GNBBO11VDMAKDWGOTDEJ/1-5.jpg" alt="Hero Image" className="img-fluid" />
 
               <div className="customers-badge">
                 <div className="customer-avatars">
