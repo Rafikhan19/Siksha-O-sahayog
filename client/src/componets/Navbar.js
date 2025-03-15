@@ -1,68 +1,64 @@
-"use client"
-import React, { useState } from 'react'
-import '../css/navbar.css'
-import Link from 'next/link'
+"use client";
+import React, { useState } from "react";
+import "../css/navbar.css";
+import Link from "next/link";
+import Image from "next/image";
+
 const Navbar = () => {
-    const [isLogin,setIsLogin]=useState(false)
+  const [isLogin, setIsLogin] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
-    
-          <header id="header" className="header ">
-    <div className="header-container ">
+    <header id="header" className="header">
+      <div className="header-container">
+        <a href="/" className="logo">
+          <Image src="/assets/img/logo.png" alt="logo" width={36} height={36} />
+          <h1 className="sitename">Siksha 'O' Sahayog</h1>
+        </a>
 
-      <a href="/" className="logo ">
-        <img src="assets/img/logo.png" alt="xyz" />
-        <h1 className="sitename">Siksha 'O' Sahayog</h1>
-      </a>
+        {/* Navigation */}
+        <nav id="navmenu" className={`navmenu ${isOpen ? "mobile-nav-active" : ""}`}>
+          <ul>
+            <li><a href="#hero" className="active">Home</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#pricing">Notice</a></li>
+            <li><a href="#club">Clubs</a></li>
+            <li><a href="#ebook">eBooks</a></li>
+            <li><a href="#complaint">Complaints</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
 
-      <nav id="navmenu" className="navmenu">
-        <ul>
-          <li><a href="#hero" className="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li className="dropdown"><a href="#"><span>Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li className="dropdown"><a href="#"><span>Deep Dropdown</span> <i className="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <i className="mobile-nav-toggle "></i>
-      </nav>
-      {isLogin?(
-              <button className="btn-getstarted" href="#about">Get Started</button>
+        {/* Mobile Menu Toggle */}
+        <div className="mobile-nav-toggle" onClick={() => setIsOpen(!isOpen)}>
+          ☰
+        </div>
 
+        {/* Mobile Dropdown Menu */}
+        {/* {isOpen && (
+          <ul className="mobile-dropdown">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#admissions">Admissions</a></li>
+            <li><a href="#pricing">Notice</a></li>
+            <li><a href="#club">Clubs</a></li>
+            <li><a href="#ebook">eBooks</a></li>
+            <li><a href="#complaint">Complaints</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        )} */}
 
-      ):(
-        <div className='auth-Button'>
-            <Link href="/login">
-            <span className="btn-login" >Login</span>
-            </Link>
-        <span className="btn-signup" >Sign up</span>
-            </div>
+        {/* Auth Buttons */}
+        {isLogin ? (
+          <button className="btn-getstarted">Get Started</button>
+        ) : (
+          <div className="auth-Button">
+            <Link href="/login"><span className="btn-login">Login</span></Link>
+            <span className="btn-signup">Sign up</span>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
 
-
-      )}
-
-
-    </div>
-  </header>
-      
-    
-  )
-}
-
-export default Navbar
+export default Navbar;
