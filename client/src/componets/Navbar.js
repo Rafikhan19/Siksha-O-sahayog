@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 const Navbar = () => {
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
   return (

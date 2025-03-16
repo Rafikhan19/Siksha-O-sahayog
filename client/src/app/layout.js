@@ -1,8 +1,4 @@
-
-
 import Navbar from "@/componets/Navbar";
-import Hero from "@/componets/Hero";
-import Cards from "@/componets/cards";
 import "./globals.css";
 
 
@@ -17,8 +13,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body >
         <Navbar />
-        <Hero />
-        <Cards />
         {children}
       </body>
     </html>
