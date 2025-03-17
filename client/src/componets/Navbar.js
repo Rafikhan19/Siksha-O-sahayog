@@ -53,7 +53,7 @@ const Navbar = () => {
         ) : (
           <div className="auth-Button">
             <Link href="/login"><span className="btn-login">Login</span></Link>
-            <span className="btn-signup">Sign up</span>
+            <Link href="/signup"><span className="btn-signup">SignUp</span></Link>
           </div>
         )}
       </div>
