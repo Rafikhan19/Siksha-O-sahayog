@@ -1,5 +1,3 @@
-
-
 import Navbar from "@/componets/Navbar";
 import "./globals.css";
 
