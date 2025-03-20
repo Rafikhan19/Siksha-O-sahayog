@@ -246,3 +246,15 @@
         transform: translateY(0);
       }
     }
+
+
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.hero-container{
+  width: 100%;
+  max-width: 1320px;
+}
