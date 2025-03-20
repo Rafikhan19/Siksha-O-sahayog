@@ -1,5 +1,5 @@
 import React from 'react'
-import { Hero, Cards } from '@/componets'
+import { Hero, Cards, Features } from '@/componets'
 
 const page = () => {
   return (
@@ -16,6 +16,7 @@ const page = () => {
     <div>
       <Hero />
       <Cards />
+      <Features />
     </div>
   )
 }

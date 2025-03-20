@@ -3,7 +3,7 @@ import '../css/hero.css';
 
 function Hero() {
   return (
-    <section id="hero" className="hero section">
+    <section id="hero" className="hero section"  style={{padding: "160px 0px 60px"}}>
       <div className="container" data-aos="fade-up" data-aos-delay="100">
         <div className="row align-items-center">
           <div className="col-lg-6">

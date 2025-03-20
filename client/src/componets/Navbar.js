@@ -9,7 +9,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header id="header" className="header">
+    <header id="header" className="header" style={{ position: "fixed", top: "0", left: "0", right: "0", width: "100%", zIndex: "1000" }}>
       <div className="header-container">
         <a href="/" className="logo">
           <Image src="/assets/img/logo.png" alt="logo" width={36} height={36} />
